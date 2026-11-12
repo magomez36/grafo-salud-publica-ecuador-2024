@@ -54,9 +54,9 @@ grafo-salud-publica-ecuador-2024/
 │   ├── Esquema Semantico RDF - Salud Publica.png
 │   └── Esquema Semantico RDF - Salud Publica.drawio
 ├── rdf/
-│   └── esquema_semantico.ttl     # En preparación por el equipo
-├── scripts/                          # Código de obtención/análisis, si se utilizó
-└── consultas/                        # Reservada para SPARQL en la etapa 1C
+│   └── esquema_semantico.ttl
+├── scripts/             
+└── consultas/
     └── README.md
 ```
 

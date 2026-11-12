@@ -1,47 +1,59 @@
-@prefix ex:     <https://example.org/salud-ecuador/> .
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
-@prefix schema: <https://schema.org/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
-@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+# ============================================================================
+# ESQUEMA SEMANTICO RDF - SALUD PUBLICA DEL ECUADOR (2024)
+# Practica bimestral 1B - Diseno del modelo de conocimiento
+# Este archivo declara el vocabulario; NO contiene instancias de pacientes.
+# Prefijo ex: provisional; debe mantenerse identico en el diagrama y el informe.
+# ============================================================================
 
-# =====================================================================
-# 1. DECLARACIÓN DE CLASES RDF (rdfs:Class)
-# =====================================================================
+@prefix ex:      <https://example.org/salud-ecuador/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema:  <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+
+# ============================================================================
+# 1. CLASES RDF
+# ============================================================================
 
 ex:Territorio a rdfs:Class ;
     rdfs:label "Territorio"@es ;
+    rdfs:comment "Division territorial de Ecuador, por ejemplo provincia, canton o parroquia."@es ;
     rdfs:subClassOf schema:AdministrativeArea .
 
 ex:EstablecimientoSalud a rdfs:Class ;
-    rdfs:label "Establecimiento de Salud"@es ;
+    rdfs:label "Establecimiento de salud"@es ;
+    rdfs:comment "Establecimiento del MSP identificado por su unicodigo, modelado como organizacion que presta servicios medicos."@es ;
     rdfs:subClassOf schema:MedicalOrganization .
 
 ex:DiagnosticoCIE10 a rdfs:Class ;
-    rdfs:label "Diagnóstico CIE-10"@es ;
+    rdfs:label "Diagnostico CIE-10"@es ;
+    rdfs:comment "Categoria diagnostica identificada en la clasificacion CIE-10."@es ;
     rdfs:subClassOf skos:Concept .
 
 ex:Periodo a rdfs:Class ;
-    rdfs:label "Período Temporal"@es .
+    rdfs:label "Periodo temporal"@es ;
+    rdfs:comment "Intervalo temporal utilizado para agrupar atenciones y egresos."@es .
 
 ex:FuenteDatos a rdfs:Class ;
-    rdfs:label "Fuente de Datos"@es ;
+    rdfs:label "Fuente de datos"@es ;
+    rdfs:comment "Conjunto de datos institucional procedente del INEC o del MSP."@es ;
     rdfs:subClassOf dcat:Dataset .
 
 ex:AtencionEmergencia a rdfs:Class ;
-    rdfs:label "Atención de Emergencia"@es ;
-    rdfs:comment "Registro de atención de emergencia del Ministerio de Salud Pública (MSP)."@es .
+    rdfs:label "Atencion de emergencia"@es ;
+    rdfs:comment "Registro de atencion de emergencia del Ministerio de Salud Publica (MSP)."@es .
 
 ex:EgresoHospitalario a rdfs:Class ;
-    rdfs:label "Egreso Hospitalario"@es ;
-    rdfs:comment "Registro de egreso hospitalario del Instituto Nacional de Estadística y Censos (INEC)."@es .
+    rdfs:label "Egreso hospitalario"@es ;
+    rdfs:comment "Registro de egreso hospitalario del Instituto Nacional de Estadistica y Censos (INEC)."@es .
 
-
-# =====================================================================
-# 2. PROPIEDADES DE RELACIÓN (Object Properties)
-# =====================================================================
+# ============================================================================
+# 2. PROPIEDADES DE RELACION ENTRE RECURSOS (12)
+# Son rdf:Property con rango en otra clase RDF.
+# ============================================================================
 
 ex:contieneTerritorio a rdf:Property ;
     rdfs:label "contiene territorio"@es ;
@@ -54,37 +66,37 @@ ex:ubicaEstablecimiento a rdf:Property ;
     rdfs:range ex:EstablecimientoSalud .
 
 ex:registraAtencion a rdf:Property ;
-    rdfs:label "registra atención"@es ;
+    rdfs:label "registra atencion"@es ;
     rdfs:domain ex:EstablecimientoSalud ;
     rdfs:range ex:AtencionEmergencia .
 
 ex:tieneDiagnosticoEmergencia a rdf:Property ;
-    rdfs:label "tiene diagnóstico de emergencia"@es ;
+    rdfs:label "tiene diagnostico de emergencia"@es ;
     rdfs:domain ex:AtencionEmergencia ;
     rdfs:range ex:DiagnosticoCIE10 .
 
 ex:tieneDiagnosticoEgreso a rdf:Property ;
-    rdfs:label "tiene diagnóstico de egreso"@es ;
+    rdfs:label "tiene diagnostico de egreso"@es ;
     rdfs:domain ex:EgresoHospitalario ;
     rdfs:range ex:DiagnosticoCIE10 .
 
 ex:tienePeriodoEmergencia a rdf:Property ;
-    rdfs:label "tiene período de emergencia"@es ;
+    rdfs:label "tiene periodo de emergencia"@es ;
     rdfs:domain ex:AtencionEmergencia ;
     rdfs:range ex:Periodo .
 
 ex:tienePeriodoEgreso a rdf:Property ;
-    rdfs:label "tiene período de egreso"@es ;
+    rdfs:label "tiene periodo de egreso"@es ;
     rdfs:domain ex:EgresoHospitalario ;
     rdfs:range ex:Periodo .
 
 ex:registraResidenciaEmergencia a rdf:Property ;
-    rdfs:label "registra residencia de emergencia"@es ;
+    rdfs:label "registra territorio de residencia de emergencia"@es ;
     rdfs:domain ex:AtencionEmergencia ;
     rdfs:range ex:Territorio .
 
 ex:registraResidenciaEgreso a rdf:Property ;
-    rdfs:label "registra residencia de egreso"@es ;
+    rdfs:label "registra territorio de residencia de egreso"@es ;
     rdfs:domain ex:EgresoHospitalario ;
     rdfs:range ex:Territorio .
 
@@ -94,7 +106,7 @@ ex:ocurreEnTerritorio a rdf:Property ;
     rdfs:range ex:Territorio .
 
 ex:contieneAtencionEmergencia a rdf:Property ;
-    rdfs:label "contiene atención de emergencia"@es ;
+    rdfs:label "contiene atencion de emergencia"@es ;
     rdfs:domain ex:FuenteDatos ;
     rdfs:range ex:AtencionEmergencia .
 
@@ -103,12 +115,14 @@ ex:contieneEgresoHospitalario a rdf:Property ;
     rdfs:domain ex:FuenteDatos ;
     rdfs:range ex:EgresoHospitalario .
 
+# ============================================================================
+# 3. PROPIEDADES DE DATOS (57)
+# Son rdf:Property cuyo rango es un datatype XSD.
+# Los identificadores internos id* se generan durante la integracion de datos.
+# Los rangos propuestos deben contrastarse con los CSV completos antes de 1C.
+# ============================================================================
 
-# =====================================================================
-# 3. PROPIEDADES DE ATRIBUTO - DATATYPES (Datatype Properties)
-# =====================================================================
-
-# Atributos de Territorio
+# 3.1. TERRITORIO (4)
 ex:idTerritorio a rdf:Property ;
     rdfs:domain ex:Territorio ; rdfs:range xsd:integer .
 ex:nombre a rdf:Property ;
@@ -118,25 +132,30 @@ ex:nivelTerritorial a rdf:Property ;
 ex:codigoTerritorial a rdf:Property ;
     rdfs:domain ex:Territorio ; rdfs:range xsd:string .
 
-# Atributos de EstablecimientoSalud
+# 3.2. ESTABLECIMIENTO DE SALUD (4)
 ex:unicodigo a rdf:Property ;
-    rdfs:domain ex:EstablecimientoSalud ; rdfs:range xsd:integer .
+    rdfs:label "Unicodigo del establecimiento"@es ;
+    rdfs:domain ex:EstablecimientoSalud ; rdfs:range xsd:string .
 ex:distrito a rdf:Property ;
     rdfs:domain ex:EstablecimientoSalud ; rdfs:range xsd:string .
 ex:zona a rdf:Property ;
     rdfs:domain ex:EstablecimientoSalud ; rdfs:range xsd:string .
 ex:nombreEstablecimiento a rdf:Property ;
-    rdfs:domain ex:EstablecimientoSalud ; rdfs:range xsd:string .
+    rdfs:label "Nombre del establecimiento"@es ;
+    rdfs:domain ex:EstablecimientoSalud ; rdfs:range xsd:string ;
+    rdfs:subPropertyOf schema:name .
 
-# Atributos de DiagnosticoCIE10
+# 3.3. DIAGNOSTICO CIE-10 (3)
 ex:codigoCIE10 a rdf:Property ;
-    rdfs:domain ex:DiagnosticoCIE10 ; rdfs:range xsd:string .
+    rdfs:label "Codigo CIE-10"@es ;
+    rdfs:domain ex:DiagnosticoCIE10 ; rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier .
 ex:descripcion a rdf:Property ;
     rdfs:domain ex:DiagnosticoCIE10 ; rdfs:range xsd:string .
 ex:codigoCIE10_3 a rdf:Property ;
     rdfs:domain ex:DiagnosticoCIE10 ; rdfs:range xsd:string .
 
-# Atributos de Periodo
+# 3.4. PERIODO (6)
 ex:idPeriodo a rdf:Property ;
     rdfs:domain ex:Periodo ; rdfs:range xsd:integer .
 ex:anio a rdf:Property ;
@@ -150,7 +169,7 @@ ex:fechaInicio a rdf:Property ;
 ex:fechaFin a rdf:Property ;
     rdfs:domain ex:Periodo ; rdfs:range xsd:date .
 
-# Atributos de FuenteDatos
+# 3.5. FUENTE DE DATOS (7)
 ex:idFuente a rdf:Property ;
     rdfs:domain ex:FuenteDatos ; rdfs:range xsd:integer .
 ex:nombreArchivo a rdf:Property ;
@@ -166,7 +185,7 @@ ex:anioDatos a rdf:Property ;
 ex:formato a rdf:Property ;
     rdfs:domain ex:FuenteDatos ; rdfs:range xsd:string .
 
-# Atributos de AtencionEmergencia (MSP)
+# 3.6. ATENCION DE EMERGENCIA - MSP (7)
 ex:idAtencion a rdf:Property ;
     rdfs:domain ex:AtencionEmergencia ; rdfs:range xsd:integer .
 ex:fechaAtencion a rdf:Property ;
@@ -182,7 +201,7 @@ ex:nacionalidadAtencion a rdf:Property ;
 ex:condicionDiagnostico a rdf:Property ;
     rdfs:domain ex:AtencionEmergencia ; rdfs:range xsd:string .
 
-# Atributos de EgresoHospitalario (INEC)
+# 3.7. EGRESO HOSPITALARIO - INEC (26)
 ex:idEgreso a rdf:Property ;
     rdfs:domain ex:EgresoHospitalario ; rdfs:range xsd:integer .
 ex:fechaIngreso a rdf:Property ;

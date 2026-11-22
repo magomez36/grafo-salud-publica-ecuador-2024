@@ -129,8 +129,8 @@ Los archivos originales del INEC y el MSP se conservan **fuera del repositorio**
 | Muestra MSP | [muestra_msp_2024.csv](datos_muestreados/muestra_msp_2024.csv) |
 | Distribución de las muestras | [distribucion_muestras.csv](datos_muestreados/distribucion_muestras.csv) |
 | Resumen del muestreo | [resumen_muestreo.json](datos_muestreados/resumen_muestreo.json) |
-| Resumen EDA INEC | [columnas_inec.csv](resultados_eda/columnas_inec.csv) |
-| Resumen EDA MSP | [columnas_msp.csv](resultados_eda/columnas_msp.csv) |
+| Columnas EDA INEC | [columnas_inec.csv](resultados_eda/columnas_inec.csv) |
+| Columnas EDA MSP | [columnas_msp.csv](resultados_eda/columnas_msp.csv) |
 | Validación conjunta | [resumen_validacion.json](resultados_validacion/resumen_validacion.json) |
 | Cobertura provincia-mes | [cobertura_provincia_mes.csv](resultados_validacion/cobertura_provincia_mes.csv) |
 | Diagnósticos compartidos | [cie3_compartidos_corregidos.csv](resultados_validacion/cie3_compartidos_corregidos.csv) |

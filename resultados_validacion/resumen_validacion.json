@@ -1,0 +1,28 @@
+{
+  "INEC": {
+    "registros": 1132667,
+    "cie_no_identificado": 0,
+    "cie3_comparables": 1132667,
+    "cie3_discrepancias_con_causa3": 0,
+    "fechas_invalidas": 0,
+    "fechas_fuera_de_2024": 0,
+    "codigos_cie3_distintos": 1517,
+    "provincias_distintas": 24,
+    "estratos_provincia_mes": 288
+  },
+  "MSP": {
+    "registros": 4776012,
+    "cie_no_identificado": 0,
+    "fechas_invalidas": 0,
+    "fechas_fuera_de_2024": 0,
+    "codigos_cie3_distintos": 1730,
+    "provincias_distintas": 24,
+    "estratos_provincia_mes": 288
+  },
+  "comparacion": {
+    "cie3_compartidos": 1500,
+    "provincias_compartidas": 24,
+    "estratos_provincia_mes_compartidos": 288,
+    "pares_provincia_canton_coincidentes": 115
+  }
+}

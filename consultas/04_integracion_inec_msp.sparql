@@ -1,0 +1,13 @@
+PREFIX ex: <https://example.org/salud-ecuador/>
+
+SELECT ?egreso ?diagnostico ?atencion
+WHERE {
+  VALUES ?diagnostico {
+    <https://example.org/salud-ecuador/diagnostico/CIE_A049>
+  }
+
+  ?egreso ex:tieneDiagnosticoEgreso ?diagnostico .
+
+  ?atencion ex:tieneDiagnosticoEmergencia ?diagnostico .
+}
+LIMIT 10

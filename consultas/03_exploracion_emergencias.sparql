@@ -1,0 +1,9 @@
+PREFIX ex: <https://example.org/salud-ecuador/>
+
+SELECT ?atencion ?diagnostico ?periodo
+WHERE {
+  ?atencion a ex:AtencionEmergencia ;
+            ex:tieneDiagnosticoEmergencia ?diagnostico ;
+            ex:tienePeriodoEmergencia ?periodo .
+}
+LIMIT 5

@@ -1,0 +1,20 @@
+PREFIX ex: <https://example.org/salud-ecuador/>
+PREFIX onto: <http://www.ontotext.com/>
+
+SELECT ?clase (COUNT(DISTINCT ?recurso) AS ?cantidad)
+FROM onto:explicit
+WHERE {
+  VALUES ?clase {
+    ex:Territorio
+    ex:EstablecimientoSalud
+    ex:DiagnosticoCIE10
+    ex:Periodo
+    ex:FuenteDatos
+    ex:AtencionEmergencia
+    ex:EgresoHospitalario
+  }
+
+  ?recurso a ?clase .
+}
+GROUP BY ?clase
+ORDER BY DESC(?cantidad)

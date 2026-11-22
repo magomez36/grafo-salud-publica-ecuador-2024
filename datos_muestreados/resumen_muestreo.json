@@ -1,0 +1,27 @@
+{
+  "metodo": "muestreo aleatorio estratificado con minimo y asignacion adicional proporcional",
+  "estratos": "24 provincias x 12 meses por fuente",
+  "tamano_por_fuente": 2592,
+  "cuota_minima_base_por_estrato": 2,
+  "semilla": 20241121,
+  "fuentes": {
+    "INEC": {
+      "registros_originales": 1132667,
+      "registros_muestra": 2592,
+      "estratos": 288,
+      "cuota_minima": 2,
+      "cuota_maxima": 44,
+      "filas_fuera_de_cobertura": 0
+    },
+    "MSP": {
+      "registros_originales": 4776012,
+      "registros_muestra": 2592,
+      "estratos": 288,
+      "cuota_minima": 3,
+      "cuota_maxima": 44,
+      "filas_fuera_de_cobertura": 0
+    }
+  },
+  "cie3_compartidos_en_muestras": 216,
+  "advertencia": "Las frecuencias de muestras no son totales de poblacion. Los pesos se muestran como referencia metodologica."
+}

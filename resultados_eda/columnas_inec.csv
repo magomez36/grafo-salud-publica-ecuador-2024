@@ -1,0 +1,39 @@
+﻿fuente;columna;filas;faltantes;porcentaje_faltante;valores_distintos_observados;frecuencias_truncadas
+INEC;prov_ubi;1132667;0;0.0;24;NO
+INEC;cant_ubi;1132667;0;0.0;125;NO
+INEC;parr_ubi;1132667;0;0.0;249;NO
+INEC;area_ubi;1132667;0;0.0;2;NO
+INEC;clase;1132667;0;0.0;12;NO
+INEC;tipo;1132667;0;0.0;4;NO
+INEC;entidad;1132667;0;0.0;9;NO
+INEC;sector;1132667;0;0.0;3;NO
+INEC;mes_inv;1132667;0;0.0;12;NO
+INEC;nac_pac;1132667;523;0.046;2;NO
+INEC;cod_pais;1132667;0;0.0;119;NO
+INEC;nom_pais;1132667;0;0.0;119;NO
+INEC;sexo;1132667;0;0.0;2;NO
+INEC;cod_edad;1132667;0;0.0;4;NO
+INEC;edad;1132667;0;0.0;114;NO
+INEC;etnia;1132667;157579;13.912;8;NO
+INEC;tipo_seg;1132667;19769;1.745;7;NO
+INEC;dis_pac;1132667;175633;15.506;7;NO
+INEC;prov_res;1132667;0;0.0;25;NO
+INEC;cant_res;1132667;0;0.0;220;NO
+INEC;parr_res;1132667;0;0.0;1153;NO
+INEC;area_res;1132667;0;0.0;2;NO
+INEC;anio_ingr;1132667;0;0.0;no calculado;NO
+INEC;mes_ingr;1132667;0;0.0;no calculado;NO
+INEC;dia_ingr;1132667;0;0.0;no calculado;NO
+INEC;fecha_ingr;1132667;0;0.0;614;NO
+INEC;anio_egr;1132667;0;0.0;1;NO
+INEC;mes_egr;1132667;0;0.0;12;NO
+INEC;dia_egr;1132667;0;0.0;31;NO
+INEC;fecha_egr;1132667;0;0.0;366;NO
+INEC;dia_estad;1132667;0;0.0;348;NO
+INEC;con_egrpa;1132667;0;0.0;3;NO
+INEC;esp_egrpa;1132667;0;0.0;52;NO
+INEC;cau_cie10;1132667;0;0.0;7363;NO
+INEC;causa3;1132667;0;0.0;1517;NO
+INEC;cap221rx;1132667;0;0.0;21;NO
+INEC;cau221rx;1132667;0;0.0;221;NO
+INEC;cau298rx;1132667;0;0.0;282;NO

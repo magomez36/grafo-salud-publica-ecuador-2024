@@ -1,0 +1,7 @@
+PREFIX onto: <http://www.ontotext.com/>
+
+SELECT (COUNT(*) AS ?totalTripletas)
+FROM onto:explicit
+WHERE {
+  ?s ?p ?o .
+}
